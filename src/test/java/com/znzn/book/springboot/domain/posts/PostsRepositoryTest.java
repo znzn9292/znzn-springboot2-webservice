@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -30,10 +31,10 @@ public class PostsRepositoryTest {
         String content = "테스트 본문";
 
         postsRepository.save(Posts.builder()
-                            .title(title)
-                            .content(content)
-                            .author("znzn@gmail.com")
-                            .build());
+                .title(title)
+                .content(content)
+                .author("znzn@gmail.com")
+                .build());
 
         // when
         List<Posts> postsList = postsRepository.findAll();
@@ -44,5 +45,7 @@ public class PostsRepositoryTest {
         assertThat(posts.getTitle()).isEqualTo(title);
         assertThat(posts.getContent()).isEqualTo(content);
     }
+
+
 
 }

@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@RunWith(SpringRunner.class)
+@RunWith(SpringRunner.class)    // 스프링부트 테스트와 JUnit 사이에 연결자 역할
 @WebMvcTest(controllers = HelloController.class)
 public class HelloControllerTest {
 
