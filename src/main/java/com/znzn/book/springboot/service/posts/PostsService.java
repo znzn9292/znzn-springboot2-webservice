@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
+
 
 @RequiredArgsConstructor
 @Service
@@ -24,7 +24,6 @@ public class PostsService {
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto){
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+ id));
-        //List<Posts> namingList = postsRepository.findByAuthor("test").orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id="+ id));
         posts.update(requestDto.getTitle(), requestDto.getContent());
 
         return id;
