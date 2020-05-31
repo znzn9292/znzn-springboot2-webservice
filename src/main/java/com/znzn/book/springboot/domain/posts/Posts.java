@@ -1,5 +1,6 @@
 package com.znzn.book.springboot.domain.posts;
 
+import com.znzn.book.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor  // 기본 생성자 자동 추가
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
     /*
      PK의 생성규칙을 나타냄,
      GenerationType.IDENTITY 가 있어야 auto_increment 가 적용
