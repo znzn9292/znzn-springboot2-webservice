@@ -21,10 +21,10 @@ public class PostsRepositoryTest {
     @Autowired
     PostsRepository postsRepository;
 
-    /*@After
+    @After
     public void cleanup(){
         postsRepository.deleteAll();
-    }*/
+    }
 
     @Test
     public void 게시글_불러오기(){
