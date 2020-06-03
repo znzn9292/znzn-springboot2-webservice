@@ -16,15 +16,16 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)    // 스프링부트 테스트와 JUnit 사이에 연결자 역할
-@WebMvcTest(controllers = HelloController.class, excludeFilters = {@ComponentScan.Filter(type= FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)})
+@WebMvcTest(controllers = HelloController.class,excludeFilters = { @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)}
+)
 public class HelloControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
-    @WithMockUser(roles = "USER")
+    @WithMockUser(roles="USER")
     @Test
-    public void hello가_리턴된다() throws Exception{
+    public void hello가_리턴된다() throws Exception {
         String hello = "hello";
 
         mvc.perform(get("/hello"))
@@ -32,17 +33,18 @@ public class HelloControllerTest {
                 .andExpect(content().string(hello));
     }
 
-    @WithMockUser(roles = "USER")
+    @WithMockUser(roles="USER")
     @Test
-    public void helloDto가_리턴된다() throws Exception{
+    public void helloDto가_리턴된다() throws Exception {
         String name = "hello";
         int amount = 1000;
 
-        mvc.perform(get("/hello/dto")
-                                                .param("name", name)
-                                                .param("amount", String.valueOf(amount)))
-                    .andExpect(status().isOk())
-                    .andExpect(jsonPath("$.name", is(name)))
-                    .andExpect(jsonPath("$.amount", is(amount)));
+        mvc.perform(
+                get("/hello/dto")
+                        .param("name", name)
+                        .param("amount", String.valueOf(amount)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is(name)))
+                .andExpect(jsonPath("$.amount", is(amount)));
     }
 }
