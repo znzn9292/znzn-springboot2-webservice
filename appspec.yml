@@ -1,7 +1,6 @@
-
-version: 0.0  # CodeDeploy ¹öÀü
+version: 0.0  # CodeDeploy ë²„ì „
 os: linux
 files:
-  - source: /  # CodeDeploy¿¡¼­ Àü´ŞÇØ ÁØ ÆÄÀÏ Áß destinationÀ¸·Î ÀÌµ¿½ÃÅ³ ´ë»ó (/ : ÀüÃ¼)
-    destination: /home/ec2-user/app/step2/zip/  # source¿¡¼­ ÁöÁ¤µÈ ÆÄÀÏÀ» ¹ŞÀ» À§Ä¡(jar¸¦ ½ÇÇàÇÏ´Â µî)!
+  - source: /  # CodeDeployì—ì„œ ì „ë‹¬í•´ ì¤€ íŒŒì¼ ì¤‘ destinationìœ¼ë¡œ ì´ë™ì‹œí‚¬ ëŒ€ìƒ (/ : ì „ì²´)
+    destination: /home/ec2-user/app/step2/zip/  # sourceì—ì„œ ì§€ì •ëœ íŒŒì¼ì„ ë°›ì„ ìœ„ì¹˜(jarë¥¼ ì‹¤í–‰í•˜ëŠ” ë“±)!
     overwrite: yes
